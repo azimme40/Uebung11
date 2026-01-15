@@ -1,10 +1,15 @@
 package h2;
 
 public class H2_main {
+	
+	private static long[] speicher = new long [1000];
+	
 	public static void main (String args[]) {
 		int n =40;
+		
 		benchmark(n);
 	}
+	
 	
 	
 	public static void benchmark(int n)
@@ -30,12 +35,12 @@ public class H2_main {
 	public static long fibonacci (int n) {
 		
 		
-		if (n ==0) {
+		if (n == 0) {
 			
 			return 0; 
 		}
 		
-		if (n == 1){
+		if (n == 1 || n == 2){
 			
 			return 1;
 		}
@@ -44,23 +49,21 @@ public class H2_main {
 	}
 	
 	public static long fibonacciCached (int n) {
-		
-		long [] speicher = new long [1000];
-		
+	
 		if (n ==0) {
 			
 			return 0; 
 		}
-		if (n == 1){
+		if (n == 1 || n == 2){
 			
 			return 1;
 		}
 		 if (speicher [n] != 0) {
+			 
 			 return speicher [n];
 			 
-		 }
-		 
-		speicher [n] = fibonacci (n-1) + fibonacci(n-2);
+		 } 
+		speicher [n] = fibonacciCached (n-1) + fibonacciCached(n-2);
 		return speicher [n];
 	}
 	

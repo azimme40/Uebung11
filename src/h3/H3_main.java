@@ -4,7 +4,7 @@ public class H3_main {
 	public static void main (String args []) {
 		
 	}
-	public int [] mergesort (int [] a) {
+	public  int [] mergesort (int [] a) {
 		
 		int [] b = new int [a.length]; 
 		
